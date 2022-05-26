@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  datascience-notebook:
+    image: jupyter/tensorflow-notebook
+    build: .
+    ports:
+      - 8888:8888
+    volumes:
+      - ./projects:/home/jovyan/work
+    container_name: datascience-notebook-container
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
